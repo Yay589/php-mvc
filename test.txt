@@ -1,0 +1,26 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+#define SIZE_BUF 256
+
+void cp(char* src, char* dst){
+    // check ...
+
+    int f_src = open(src, O_RDONLY);
+    int f_dst = open(dst, O_WRONLY | O_CREAT);
+    char buf[SIZE_BUF+1];
+    int octect_lu;
+    while((octect_lu=read(f_src, buf, SIZE_BUF))){
+            write(f_dst, buf,octect_lu );
+    }
+
+}
+
+
+int main(int argc, char** argv){
+    
+    cp(argv[1], argv[2]);
+
+    return 0;
+}
