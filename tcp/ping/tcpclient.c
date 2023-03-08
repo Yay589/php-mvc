@@ -29,10 +29,10 @@ int main(int argc, char** argv){
     bzero(&serv_addr, sizeof(serv_addr));
 
     //fill the sockaddr_in structure
-    inet_pton( AF_INET, IP , &serv_addr.sin_addr);
+    inet_pton( AF_INET, IP , &serv_addr.sin_addr);/*converti l'adresse écrite en chaine de charactère en données compréhensible par*/
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(PORT);
-
+    
 
     if ( connect(sockfd, (struct sockaddr*)&serv_addr, (socklen_t) sizeof(serv_addr)) == -1){
         close(sockfd);
